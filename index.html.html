@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资料宝库 - 管理中心</title>
+  <!-- 引入我们稍后创建的CSS和JS文件 -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- 登录页面 (初始显示) -->
+  <div id="loginPage" class="page">
+    <h2>欢迎使用 资料宝库</h2>
+    <button id="loginBtn">微信一键登录</button>
+  </div>
+
+  <!-- 主页 (登录后显示) -->
+  <div id="mainPage" class="page hidden">
+    <header>
+      <h1>资料宝库</h1>
+      <div id="userInfo"></div>
+    </header>
+    <nav>
+      <button id="homeBtn" data-target="dashboard">主页</button>
+      <button id="userManageBtn" data-target="userManagement">用户管理</button>
+      <button id="roleManageBtn" data-target="roleManagement">角色管理</button>
+      <button id="categoryManageBtn" data-target="categoryManagement">资料分类管理</button>
+    </nav>
+    <main>
+      <!-- 仪表板 -->
+      <section id="dashboard" class="content-section active">
+        <h2>管理中心</h2>
+        <p>欢迎回来，<span id="welcomeName"></span>。</p>
+        <p>这里是系统控制中心。</p>
+      </section>
+
+      <!-- 用户管理页面 -->
+      <section id="userManagement" class="content-section hidden">
+        <h2>用户管理</h2>
+        <button id="addUserBtn">+ 新增用户</button>
+        <table id="userTable">
+          <thead>
+            <tr><th>用户名</th><th>角色</th><th>最后登录</th><th>操作</th></tr>
+          </thead>
+          <tbody id="userTableBody"></tbody>
+        </table>
+      </section>
+
+      <!-- 角色管理页面 -->
+      <section id="roleManagement" class="content-section hidden">
+        <h2>角色管理</h2>
+        <button id="addRoleBtn">+ 新建角色</button>
+        <table id="roleTable">
+          <thead>
+            <tr><th>角色名称</th><th>权限详情</th><th>操作</th></tr>
+          </thead>
+          <tbody id="roleTableBody"></tbody>
+        </table>
+      </section>
+
+      <!-- 分类管理页面 -->
+      <section id="categoryManagement" class="content-section hidden">
+        <h2>资料分类管理</h2>
+        <button id="addCategoryBtn">+ 新建分类</button>
+        <ul id="categoryTree"></ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- 模态框 (用于新增/编辑) -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+</body>
+</html>
